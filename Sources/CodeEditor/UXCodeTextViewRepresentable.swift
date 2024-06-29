@@ -130,7 +130,7 @@ struct UXCodeTextViewRepresentable : UXViewRepresentable {
         return
       }
       
-        self.parent.source.wrappedValue = textView.string
+      parent.source.wrappedValue = textView.string
     }
       
     #if os(macOS)
