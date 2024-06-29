@@ -238,6 +238,7 @@ public struct CodeEditor: View {
               indentStyle : IndentStyle          = .system,
               autoPairs   : [ String : String ]? = nil,
               inset       : CGSize?              = nil,
+              allowsUndo  : Bool                 = true,
               autoscroll  : Bool                 = true)
   {
     self.source      = source
@@ -251,7 +252,8 @@ public struct CodeEditor: View {
     self.autoPairs   = autoPairs
                     ?? language.flatMap({ CodeEditor.defaultAutoPairs[$0] })
                     ?? [:]
-    self.autoscroll = autoscroll
+    self.allowsUndo  = allowsUndo
+    self.autoscroll  = autoscroll
   }
   
   /**
@@ -286,7 +288,8 @@ public struct CodeEditor: View {
               flags       : Flags                = .defaultViewerFlags,
               indentStyle : IndentStyle          = .system,
               autoPairs   : [ String : String ]? = nil,
-              inset       : CGSize?              = nil)
+              inset       : CGSize?              = nil,
+              allowsUndo  : Bool                 = true)
   {
     assert(!flags.contains(.editable), "Editing requires a Binding")
     self.init(source      : .constant(source),
@@ -296,7 +299,8 @@ public struct CodeEditor: View {
               flags       : flags.subtracting(.editable),
               indentStyle : indentStyle,
               autoPairs   : autoPairs,
-              inset       : inset)
+              inset       : inset,
+              allowsUndo  : allowsUndo)
   }
   
   private var source      : Binding<String>
@@ -308,6 +312,7 @@ public struct CodeEditor: View {
   private let indentStyle : IndentStyle
   private let autoPairs   : [ String : String ]
   private let inset       : CGSize
+  private let allowsUndo  : Bool
   private let autoscroll  : Bool
 
   public var body: some View {
@@ -320,6 +325,7 @@ public struct CodeEditor: View {
                                 indentStyle : indentStyle,
                                 autoPairs   : autoPairs,
                                 inset       : inset,
+                                allowsUndo  : allowsUndo,
                                 autoscroll  : autoscroll)
   }
 }
