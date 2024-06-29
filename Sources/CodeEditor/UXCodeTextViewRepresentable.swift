@@ -238,7 +238,7 @@ struct UXCodeTextViewRepresentable : UXViewRepresentable {
       let textView = UXCodeTextView()
       textView.autoresizingMask   = [ .width, .height ]
       textView.delegate           = context.coordinator
-      textView.allowsUndo         = true
+      textView.allowsUndo         = allowsUndo
       textView.textContainerInset = inset
 
       let scrollView = NSScrollView()
