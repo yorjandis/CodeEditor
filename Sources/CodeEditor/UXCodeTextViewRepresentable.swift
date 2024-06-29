@@ -130,9 +130,7 @@ struct UXCodeTextViewRepresentable : UXViewRepresentable {
         return
       }
       
-        DispatchQueue.main.async {
-            self.parent.source.wrappedValue = textView.string
-        }
+        self.parent.source.wrappedValue = textView.string
     }
       
     #if os(macOS)
