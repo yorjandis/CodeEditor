@@ -130,6 +130,7 @@ struct UXCodeTextViewRepresentable : UXViewRepresentable {
         return
       }
       
+        print("Why wont the dispatchqueue go away!")
       parent.source.wrappedValue = textView.string
     }
       
