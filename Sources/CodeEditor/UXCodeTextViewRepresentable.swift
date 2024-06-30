@@ -77,7 +77,7 @@ struct UXCodeTextViewRepresentable : UXViewRepresentable {
   private let flags       : CodeEditor.Flags
   private let indentStyle : CodeEditor.IndentStyle
   private let inset       : CGSize
-  private let allowsUndo: Bool
+  private let allowsUndo  : Bool
   private let autoPairs   : [ String : String ]
   private let autoscroll  : Bool
 
