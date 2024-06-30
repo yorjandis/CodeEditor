@@ -53,6 +53,7 @@ struct UXCodeTextViewRepresentable : UXViewRepresentable {
               indentStyle : CodeEditor.IndentStyle,
               autoPairs   : [ String : String ],
               inset       : CGSize,
+              allowsUndo  : Bool,
               autoscroll  : Bool)
   {
     self.source      = source
@@ -64,6 +65,7 @@ struct UXCodeTextViewRepresentable : UXViewRepresentable {
     self.indentStyle = indentStyle
     self.autoPairs   = autoPairs
     self.inset       = inset
+    self.allowsUndo  = allowsUndo
     self.autoscroll  = autoscroll
   }
     
@@ -75,6 +77,7 @@ struct UXCodeTextViewRepresentable : UXViewRepresentable {
   private let flags       : CodeEditor.Flags
   private let indentStyle : CodeEditor.IndentStyle
   private let inset       : CGSize
+  private let allowsUndo  : Bool
   private let autoPairs   : [ String : String ]
   private let autoscroll  : Bool
 
@@ -235,7 +238,7 @@ struct UXCodeTextViewRepresentable : UXViewRepresentable {
       let textView = UXCodeTextView()
       textView.autoresizingMask   = [ .width, .height ]
       textView.delegate           = context.coordinator
-      textView.allowsUndo         = true
+      textView.allowsUndo         = allowsUndo
       textView.textContainerInset = inset
 
       let scrollView = NSScrollView()
@@ -319,6 +322,7 @@ struct UXCodeTextViewRepresentable_Previews: PreviewProvider {
                                 indentStyle : .system,
                                 autoPairs   : [:],
                                 inset       : .init(width: 8, height: 8),
+                                allowsUndo  : true,
                                 autoscroll  : false)
       .frame(width: 200, height: 100)
     
@@ -331,6 +335,7 @@ struct UXCodeTextViewRepresentable_Previews: PreviewProvider {
                                 indentStyle : .system,
                                 autoPairs   : [:],
                                 inset       : .init(width: 8, height: 8),
+                                allowsUndo  : true,
                                 autoscroll  : false)
       .frame(width: 200, height: 100)
     
@@ -349,6 +354,7 @@ struct UXCodeTextViewRepresentable_Previews: PreviewProvider {
       indentStyle : .system,
       autoPairs   : [:],
       inset       : .init(width: 8, height: 8),
+      allowsUndo  : true,
       autoscroll  : false
     )
     .frame(width: 540, height: 200)
