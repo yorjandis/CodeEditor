@@ -18,6 +18,7 @@ public extension CodeEditor {
   }
 }
 
+//Yorj: Se ha ampliado la lista de lenguajes a todos!
 public extension CodeEditor.Language {
     @inlinable static var accesslog    : Self { Self(rawValue: "accesslog") }
     @inlinable static var actionscript : Self { Self(rawValue: "actionscript") }
@@ -186,6 +187,7 @@ public extension CodeEditor.Language {
     @inlinable static var tap          : Self { Self(rawValue: "tap") }
     @inlinable static var tcl          : Self { Self(rawValue: "tcl") }
     @inlinable static var tex          : Self { Self(rawValue: "tex") }
+    @inlinable static var text         : Self { Self(rawValue: "plaintext") }
     @inlinable static var thrift       : Self { Self(rawValue: "thrift") }
     @inlinable static var tp           : Self { Self(rawValue: "tp") }
     @inlinable static var twig         : Self { Self(rawValue: "twig") }
@@ -205,6 +207,7 @@ public extension CodeEditor.Language {
     @inlinable static var zephir       : Self { Self(rawValue: "zephir") }
 }
 
+//Yorj: Devuelve un CodeEditor.Languaje dado el nombre de un lenguaje, por ejemplo "swift"
 public extension CodeEditor.Language{
      static func languageFromString(_ language: String) -> CodeEditor.Language? {
         switch language.lowercased() {
@@ -540,6 +543,8 @@ public extension CodeEditor.Language{
             return .tcl
         case "tex":
             return .tex
+        case "text":
+            return .plaintext
         case "thrift":
             return .thrift
         case "tp":
