@@ -206,7 +206,7 @@ public extension CodeEditor.Language {
 }
 
 public extension CodeEditor.Language{
-     func languageFromString(_ language: String) -> CodeEditor.Language? {
+     static func languageFromString(_ language: String) -> CodeEditor.Language? {
         switch language.lowercased() {
         case "accesslog":
             return .accesslog
