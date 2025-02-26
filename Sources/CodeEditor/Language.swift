@@ -48,6 +48,7 @@ public extension CodeEditor.Language {
     @inlinable static var cmake        : Self { Self(rawValue: "cmake") }
     @inlinable static var coffeescript : Self { Self(rawValue: "coffeescript") }
     @inlinable static var coq          : Self { Self(rawValue: "coq") }
+    @inlinable static var c            : Self { Self(rawValue: "c") }
     @inlinable static var cos          : Self { Self(rawValue: "cos") }
     @inlinable static var cpp          : Self { Self(rawValue: "cpp") }
     @inlinable static var crmsh        : Self { Self(rawValue: "crmsh") }
